@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 FragmentTransaction mFragmentTransaction= mFragmentManager.beginTransaction();
                 // mengganti fragment
                 mFragmentTransaction.replace(R.id.frame_container, mCategoryFragment, CategoryFragment.class.getSimpleName());
+                // menampilkan object sebelumnya ketika tekan tombol kembali
                 mFragmentTransaction.addToBackStack(null);
                 mFragmentTransaction.commit();
             }

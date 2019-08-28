@@ -44,7 +44,23 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.btn_detail_category){
+            DetailCategoryFragment mDetailCategoryFragment= new DetailCategoryFragment();
+            Bundle mBundle= new Bundle();
+            // put bundle use intent
+            mBundle.putString(DetailCategoryFragment.EXTRA_NAME, "Lifestyle");
+            String description= "Kategori ini akan berisi produk produk lifestyle";
 
+            mDetailCategoryFragment.setArguments(mBundle);
+            mDetailCategoryFragment.setDescription(description);
+
+            FragmentManager mFragment= getFragmentManager();
+            if(mFragment!=null){
+                FragmentTransaction mFragmentTransaction= mFragment.beginTransaction();
+                // replace frame
+                mFragmentTransaction.replace(R.id.frame_container, mDetailCategoryFragment, DetailCategoryFragment.class.getSimpleName());
+                mFragmentTransaction.addToBackStack(null);
+                mFragmentTransaction.commit();
+            }
         }
     }
 }
